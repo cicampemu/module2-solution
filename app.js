@@ -2,19 +2,19 @@
 	'use strict';
 
 angular.module('checkListApp', [])
-	.controller('checkListToBuyController', checkListToBuyController)
-	.controller('checkListBoughtController', checkListBoughtController)
-	.service('checkListerService', checkListerService);
+	.controller('ToBuyController', ToBuyController)
+	.controller('AlreadyBoughtController', AlreadyBoughtController)
+	.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
-checkListToBuyController.$inject = ['checkListerService'];
-function checkListToBuyController(checkListerService){
+ToBuyController.$inject = ['ShoppingListCheckOffService'];
+function ToBuyController(ShoppingListCheckOffService){
 	var checkList = this;
 
-	checkList.items = checkListerService.getItems();
+	checkList.items = ShoppingListCheckOffService.getItems();
 	
 	checkList.buy = function(itemIndex) {
 		
-      		checkListerService.buy(itemIndex);
+      		ShoppingListCheckOffService.buy(itemIndex);
     	
     	
   	};
@@ -22,16 +22,16 @@ function checkListToBuyController(checkListerService){
 
 }
 
-checkListBoughtController.$inject = ['checkListerService'];
-function checkListBoughtController(checkListerService){
+AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
+function AlreadyBoughtController(ShoppingListCheckOffService){
 	var checkListBought = this;
 
   	// List of shopping items
-  	checkListBought.items = checkListerService.getBoughtItems();
+  	checkListBought.items = ShoppingListCheckOffService.getBoughtItems();
 
 }
 
-function checkListerService() {
+function ShoppingListCheckOffService() {
 	var service = this;
 
 	//list of items array
