@@ -47,6 +47,14 @@ function ShoppingListCheckOffService() {
 		{
 			item_name: 'cakes',
 			item_quantity: 4
+		},
+		{
+			item_name: 'crisps',
+			item_quantity: 10
+		},
+		{
+			item_name: 'soda',
+			item_quantity: 3
 		}
 	];
 
